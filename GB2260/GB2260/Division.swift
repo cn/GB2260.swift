@@ -6,18 +6,34 @@
 //
 
 public struct Division {
-  let name: String
-  let code: String
-  let revision: String
-  let province: () -> String?
-  let prefecture: () -> String?
+  typealias LazyEvaluation = () -> String?
+  public let name: String
+  public let code: String
+  public let revision: String
+  public var province: String? {
+    return getProvince()
+  }
+  public var prefecture: String? {
+    return getPrefecture()
+  }
+
+  let getProvince: () -> String?
+  let getPrefecture: () -> String?
+
+  init(name: String, code: String, revision: String, getProvince: LazyEvaluation, getPrefecture: LazyEvaluation) {
+    self.name = name
+    self.code = code
+    self.revision = revision
+    self.getProvince = getProvince
+    self.getPrefecture = getPrefecture
+  }
 }
 
 extension Division: CustomStringConvertible {
   public var description: String {
     return [
-      (province() ?? ""),
-      (prefecture() ?? ""),
+      (province ?? ""),
+      (prefecture ?? ""),
       name
       ].filter({$0 != ""})
        .joinWithSeparator(" ")

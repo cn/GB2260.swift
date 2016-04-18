@@ -75,7 +75,7 @@ extension GB2260 {
       return []
     }
     return data.filter({ isPrefecture($0.0)
-      && self[$0.0]!.province() == province.name }).map { self[$0.0]! }
+      && self[$0.0]!.province == province.name }).map { self[$0.0]! }
   }
 
 
@@ -84,8 +84,8 @@ extension GB2260 {
       let prefecture = self[prefectureCode(code)]
     else { return [] }
     return data.filter({ !isProvince($0.0) && !isPrefecture($0.0)
-      && self[$0.0]!.prefecture() == prefecture.name
-      && self[$0.0]!.province() == province.name }).map { self[$0.0]! }
+      && self[$0.0]!.prefecture == prefecture.name
+      && self[$0.0]!.province == province.name }).map { self[$0.0]! }
   }
 }
 
@@ -95,7 +95,7 @@ extension GB2260 {
     return Division(name: name,
                     code: index,
                     revision: revision.rawValue,
-                    province: getProvince(index),
-                    prefecture: getPrefecture(index))
+                    getProvince: getProvince(index),
+                    getPrefecture: getPrefecture(index))
   }
 }

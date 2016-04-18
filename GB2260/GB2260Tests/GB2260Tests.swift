@@ -37,7 +37,7 @@ class GB2260Tests: XCTestCase {
   func testPrefecture() {
     let division = db["110100"]
     XCTAssertNotNil(division)
-    XCTAssertEqual(division!.province(), .Some("北京市"))
+    XCTAssertEqual(division!.province, .Some("北京市"))
     XCTAssertEqual(division!.name, "市辖区")
     XCTAssertEqual(division!.description, .Some("北京市 市辖区"))
   }
@@ -45,8 +45,8 @@ class GB2260Tests: XCTestCase {
   func testCountry() {
     let division = db["110101"]
     XCTAssertNotNil(division)
-    XCTAssertEqual(division!.province(), .Some("北京市"))
-    XCTAssertEqual(division!.prefecture(), .Some("市辖区"))
+    XCTAssertEqual(division!.province, .Some("北京市"))
+    XCTAssertEqual(division!.prefecture, .Some("市辖区"))
     XCTAssertEqual(division!.name, "东城区")
     XCTAssertEqual(division!.description, .Some("北京市 市辖区 东城区"))
   }
