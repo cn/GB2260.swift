@@ -6,19 +6,19 @@
 //
 
 public struct Division {
-  typealias LazyEvaluation = () -> String?
+  typealias LazyEvaluation = () -> Division?
   public let name: String
   public let code: String
   public let revision: String
-  public var province: String? {
+  public var province: Division? {
     return getProvince()
   }
-  public var prefecture: String? {
+  public var prefecture: Division? {
     return getPrefecture()
   }
 
-  let getProvince: () -> String?
-  let getPrefecture: () -> String?
+  let getProvince: () -> Division?
+  let getPrefecture: () -> Division?
 
   init(name: String, code: String, revision: String, getProvince: LazyEvaluation, getPrefecture: LazyEvaluation) {
     self.name = name
@@ -29,11 +29,16 @@ public struct Division {
   }
 }
 
+extension Division: Equatable { }
+public func ==(lhs: Division, rhs: Division) -> Bool {
+  return lhs.code == rhs.code
+}
+
 extension Division: CustomStringConvertible {
   public var description: String {
     return [
-      (province ?? ""),
-      (prefecture ?? ""),
+      (province?.name ?? ""),
+      (prefecture?.name ?? ""),
       name
       ].filter({$0 != ""})
        .joinWithSeparator(" ")

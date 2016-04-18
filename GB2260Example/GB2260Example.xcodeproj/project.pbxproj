@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9CCFB8D11CC52DA700B4AFFF /* GB2260.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0DA521CC3E671001E7B62 /* GB2260.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9CCFB8D71CC5453C00B4AFFF /* GB2260.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0DA521CC3E671001E7B62 /* GB2260.framework */; };
+		9CCFB8D81CC5453C00B4AFFF /* GB2260.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0DA521CC3E671001E7B62 /* GB2260.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CE0D9FB1CC3E63C001E7B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0D9FA1CC3E63C001E7B62 /* AppDelegate.swift */; };
 		9CE0D9FD1CC3E63C001E7B62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0D9FC1CC3E63C001E7B62 /* ViewController.swift */; };
 		9CE0DA001CC3E63C001E7B62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE0D9FE1CC3E63C001E7B62 /* Main.storyboard */; };
@@ -15,11 +16,10 @@
 		9CE0DA051CC3E63C001E7B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE0DA031CC3E63C001E7B62 /* LaunchScreen.storyboard */; };
 		9CE0DA101CC3E63C001E7B62 /* GB2260ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0DA0F1CC3E63C001E7B62 /* GB2260ExampleTests.swift */; };
 		9CE0DA1B1CC3E63D001E7B62 /* GB2260ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0DA1A1CC3E63D001E7B62 /* GB2260ExampleUITests.swift */; };
-		9CE0DA5B1CC3E994001E7B62 /* GB2260.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0DA521CC3E671001E7B62 /* GB2260.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9CCFB8D21CC52DA700B4AFFF /* PBXContainerItemProxy */ = {
+		9CCFB8DC1CC5455600B4AFFF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9CE0DA4C1CC3E671001E7B62 /* GB2260.xcodeproj */;
 			proxyType = 1;
@@ -54,23 +54,16 @@
 			remoteGlobalIDString = 9CE0DA3C1CC3E65D001E7B62;
 			remoteInfo = GB2260Tests;
 		};
-		9CE0DA551CC3E678001E7B62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9CE0DA4C1CC3E671001E7B62 /* GB2260.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9CE0DA311CC3E65D001E7B62;
-			remoteInfo = GB2260;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9CCFB8D41CC52DA800B4AFFF /* Embed Frameworks */ = {
+		9CCFB8DB1CC5453C00B4AFFF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9CCFB8D11CC52DA700B4AFFF /* GB2260.framework in Embed Frameworks */,
+				9CCFB8D81CC5453C00B4AFFF /* GB2260.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CE0DA5B1CC3E994001E7B62 /* GB2260.framework in Frameworks */,
+				9CCFB8D71CC5453C00B4AFFF /* GB2260.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,13 +184,12 @@
 				9CE0D9F31CC3E63C001E7B62 /* Sources */,
 				9CE0D9F41CC3E63C001E7B62 /* Frameworks */,
 				9CE0D9F51CC3E63C001E7B62 /* Resources */,
-				9CCFB8D41CC52DA800B4AFFF /* Embed Frameworks */,
+				9CCFB8DB1CC5453C00B4AFFF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9CE0DA561CC3E678001E7B62 /* PBXTargetDependency */,
-				9CCFB8D31CC52DA700B4AFFF /* PBXTargetDependency */,
+				9CCFB8DD1CC5455600B4AFFF /* PBXTargetDependency */,
 			);
 			name = GB2260Example;
 			productName = GB2260Example;
@@ -362,10 +354,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9CCFB8D31CC52DA700B4AFFF /* PBXTargetDependency */ = {
+		9CCFB8DD1CC5455600B4AFFF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GB2260;
-			targetProxy = 9CCFB8D21CC52DA700B4AFFF /* PBXContainerItemProxy */;
+			targetProxy = 9CCFB8DC1CC5455600B4AFFF /* PBXContainerItemProxy */;
 		};
 		9CE0DA0D1CC3E63C001E7B62 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -376,11 +368,6 @@
 			isa = PBXTargetDependency;
 			target = 9CE0D9F61CC3E63C001E7B62 /* GB2260Example */;
 			targetProxy = 9CE0DA171CC3E63D001E7B62 /* PBXContainerItemProxy */;
-		};
-		9CE0DA561CC3E678001E7B62 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GB2260;
-			targetProxy = 9CE0DA551CC3E678001E7B62 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -43,22 +43,22 @@ extension GB2260 {
 
 extension GB2260 {
 
-  func getProvince(code: String) -> () -> String? {
+  func getProvince(code: String) -> () -> Division? {
     return { [unowned self] in
       if self.isProvince(code) {
         return nil
       } else {
-        return self.data[self.provinceCode(code)]
+        return self[self.provinceCode(code)]
       }
     }
   }
 
-  func getPrefecture(code: String) -> () -> String? {
+  func getPrefecture(code: String) -> () -> Division? {
     return { [unowned self] in
       if self.isPrefecture(code) {
         return nil
       } else {
-        return self.data[self.prefectureCode(code)]
+        return self[self.prefectureCode(code)]
       }
     }
   }
@@ -75,17 +75,14 @@ extension GB2260 {
       return []
     }
     return data.filter({ isPrefecture($0.0)
-      && self[$0.0]!.province == province.name }).map { self[$0.0]! }
+      && self[$0.0]!.province == province }).map { self[$0.0]! }
   }
 
 
   public func countriesOf(code code: String) -> [Division] {
-    guard let province = self[provinceCode(code)],
-      let prefecture = self[prefectureCode(code)]
-    else { return [] }
+    guard let prefecture = self[prefectureCode(code)] else { return [] }
     return data.filter({ !isProvince($0.0) && !isPrefecture($0.0)
-      && self[$0.0]!.prefecture == prefecture.name
-      && self[$0.0]!.province == province.name }).map { self[$0.0]! }
+      && self[$0.0]!.prefecture == prefecture }).map { self[$0.0]! }
   }
 }
 
