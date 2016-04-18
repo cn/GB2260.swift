@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (0.7.7)
+    mustache (1.0.3)
+    plist (3.2.0)
+    rake (11.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  colorize
+  mustache
+  plist (~> 3.2)
+  rake
+
+BUNDLED WITH
+   1.11.2
