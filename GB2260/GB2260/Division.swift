@@ -31,17 +31,7 @@ public struct Division {
 
 extension Division: Equatable { }
 public func ==(lhs: Division, rhs: Division) -> Bool {
-  return lhs.code == rhs.code
-}
-
-extension Division: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    return [
-      "<GB/T 2260-\(revision)>",
-      code,
-      description
-    ].joinWithSeparator(" ")
-  }
+  return lhs.code == rhs.code && lhs.revision == rhs.revision
 }
 
 extension Division: CustomStringConvertible {
@@ -54,3 +44,12 @@ extension Division: CustomStringConvertible {
   }
 }
 
+extension Division: CustomDebugStringConvertible {
+  public var debugDescription: String {
+    return [
+      "<GB/T 2260-\(revision)>",
+      code,
+      description
+      ].joinWithSeparator(" ")
+  }
+}
