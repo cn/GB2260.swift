@@ -34,17 +34,16 @@ for up to date installation instructions.
 ```swift
 import GB2260
 
-let db = GB2260() // same to: let db = GB2260(.V201410)
-if let db = db {
-  let division = db["110105"] // Division: Optional(<GB/T 2260-201410> 110105 北京市 市辖区 朝阳区)
+if let db = GB2260(),             // same to: let db = GB2260(.V201410)
+   let division = db["110105"] {  // Division: Optional(<GB/T 2260-201410> 110105 北京市 市辖区 朝阳区)
 
-  division!.name // 朝阳区
-  division!.province // Division: Optional(<GB/T 2260-201410> 110000 北京市)
-  division!.prefecture // Division: Optional(<GB/T 2260-201410> 110100 北京市 市辖区)
-  division!.code // 110105
-  division!.revision // 201410
+  division.name // 朝阳区
+  division.province // Division: Optional(<GB/T 2260-201410> 110000 北京市)
+  division.prefecture // Division: Optional(<GB/T 2260-201410> 110100 北京市 市辖区)
+  division.code // 110105
+  division.revision // 201410
 
-  division!.description // 北京市 市辖区 朝阳区
+  division.description // 北京市 市辖区 朝阳区
 }
 ```
 
