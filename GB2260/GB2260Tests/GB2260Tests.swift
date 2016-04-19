@@ -63,8 +63,8 @@ class GB2260Tests: XCTestCase {
     XCTAssertNil(db["11019"])
     XCTAssertTrue(db.prefecturesOf(code: "990000").count == 0)
     XCTAssertTrue(db.prefecturesOf(code: "123").count == 0)
-    XCTAssertTrue(db.prefecturesOf(code: "110900").count == 0)
-    XCTAssertTrue(db.prefecturesOf(code: "9").count == 0)
+    XCTAssertTrue(db.countiesOf(code: "110900").count == 0)
+    XCTAssertTrue(db.countiesOf(code: "9").count == 0)
   }
 
   func testProvinces() {

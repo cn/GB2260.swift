@@ -9,7 +9,6 @@ public class GB2260 {
   let revision: Revision
   let data: [String: String]
 
-
   public init?(revision: Revision = .V201410) {
     self.revision = revision
     guard let path = revision.path,
@@ -42,7 +41,6 @@ extension GB2260 {
 }
 
 extension GB2260 {
-
   func getProvince(code: String) -> () -> Division? {
     return { 
       if self.isProvince(code) {
@@ -80,10 +78,11 @@ extension GB2260 {
 
 
   public func countiesOf(code code: String) -> [Division] {
-    guard let prefecture = self[prefectureCode(code)] else { return [] }
+    guard let prefecture = self[code] else { return [] }
     return data.filter({ !isProvince($0.0) && !isPrefecture($0.0)
       && self[$0.0]!.prefecture == prefecture }).map { self[$0.0]! }
   }
+
 }
 
 extension GB2260 {
@@ -95,4 +94,5 @@ extension GB2260 {
                     getProvince: getProvince(index),
                     getPrefecture: getPrefecture(index))
   }
+  
 }
