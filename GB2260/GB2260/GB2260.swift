@@ -79,7 +79,7 @@ extension GB2260 {
   }
 
 
-  public func countriesOf(code code: String) -> [Division] {
+  public func countiesOf(code code: String) -> [Division] {
     guard let prefecture = self[prefectureCode(code)] else { return [] }
     return data.filter({ !isProvince($0.0) && !isPrefecture($0.0)
       && self[$0.0]!.prefecture == prefecture }).map { self[$0.0]! }

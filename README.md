@@ -56,12 +56,12 @@ Return a list of prefecture level cities in Division data structure.
 GB2260()!.prefecturesOf(code: "110000") // [<GB/T 2260-201410> 110100 北京市 市辖区, <GB/T 2260-201410> 110200 北京市 县]
 ```
 
-### .countriesOf(code: String) -> [Division]
+### .countiesOf(code: String) -> [Division]
 
 Return a list of counties in Division data structure.
 
 ```swift
-GB2260()!.countriesOf(code: "110100") 
+GB2260()!.countiesOf(code: "110100") 
 /**
   [
     <GB/T 2260-201410> 110108 北京市 市辖区 海淀区

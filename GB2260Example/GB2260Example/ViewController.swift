@@ -17,7 +17,7 @@ class ViewController: UIViewController {
       print(db["110105"])
       print(db.provinces)
       print(db.prefecturesOf(code: "110000"))
-      print(db.countriesOf(code: "110100"))
+      print(db.countiesOf(code: "110100"))
     }
   }
 

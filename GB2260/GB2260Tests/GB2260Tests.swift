@@ -76,7 +76,7 @@ class GB2260Tests: XCTestCase {
   }
 
   func testCountries() {
-    XCTAssertEqual(db.countriesOf(code: "110100").count, 14)
+    XCTAssertEqual(db.countiesOf(code: "110100").count, 14)
   }
 
   func testPerformanceExample() {
