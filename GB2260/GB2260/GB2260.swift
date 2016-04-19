@@ -65,7 +65,7 @@ extension GB2260 {
 
 extension GB2260 {
   public var provinces: [Division] {
-    return self.data.filter({ isProvince($0.0) }).map { self[$0.0]! }
+    return self.data.filter({ isProvince($0.0) }).flatMap { self[$0.0] }
   }
 
   public func prefecturesOf(code code: String) -> [Division] {
@@ -73,14 +73,14 @@ extension GB2260 {
       return []
     }
     return data.filter({ isPrefecture($0.0)
-      && self[$0.0]!.province == province }).map { self[$0.0]! }
+      && self[$0.0]!.province == province }).flatMap { self[$0.0] }
   }
 
 
   public func countiesOf(code code: String) -> [Division] {
     guard let prefecture = self[code] else { return [] }
     return data.filter({ !isProvince($0.0) && !isPrefecture($0.0)
-      && self[$0.0]!.prefecture == prefecture }).map { self[$0.0]! }
+      && self[$0.0]!.prefecture == prefecture }).flatMap { self[$0.0] }
   }
 
 }
