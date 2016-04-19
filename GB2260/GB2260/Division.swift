@@ -34,14 +34,23 @@ public func ==(lhs: Division, rhs: Division) -> Bool {
   return lhs.code == rhs.code
 }
 
+extension Division: CustomDebugStringConvertible {
+  public var debugDescription: String {
+    return [
+      "<GB/T 2260-\(revision)>",
+      code,
+      description
+    ].joinWithSeparator(" ")
+  }
+}
+
 extension Division: CustomStringConvertible {
   public var description: String {
     return [
-      (province?.name ?? ""),
-      (prefecture?.name ?? ""),
+      province?.name ?? "",
+      prefecture?.name ?? "",
       name
-      ].filter({$0 != ""})
-       .joinWithSeparator(" ")
+    ].filter({ !$0.isEmpty }).joinWithSeparator(" ")
   }
 }
 
