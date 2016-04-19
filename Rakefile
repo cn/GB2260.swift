@@ -36,5 +36,11 @@ task :update => [:reinit] do
 end
 
 task :help do
-
+  puts """Available commands:
+    init           Create the data folder
+    cleanup        Remove the data folder
+    reinit         Reinit the data folder
+    update         Reinit dataset and transfer original tsv data to plists.
+    help           Display general or command-specific help
+  """
 end
