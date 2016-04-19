@@ -16,6 +16,7 @@
 		9CE0DA051CC3E63C001E7B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE0DA031CC3E63C001E7B62 /* LaunchScreen.storyboard */; };
 		9CE0DA101CC3E63C001E7B62 /* GB2260ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0DA0F1CC3E63C001E7B62 /* GB2260ExampleTests.swift */; };
 		9CE0DA1B1CC3E63D001E7B62 /* GB2260ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0DA1A1CC3E63D001E7B62 /* GB2260ExampleUITests.swift */; };
+		9CFD87C31CC5C005000178D0 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD87C21CC5C005000178D0 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		9CE0DA1A1CC3E63D001E7B62 /* GB2260ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GB2260ExampleUITests.swift; sourceTree = "<group>"; };
 		9CE0DA1C1CC3E63D001E7B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CE0DA4C1CC3E671001E7B62 /* GB2260.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GB2260.xcodeproj; path = ../../GB2260/GB2260.xcodeproj; sourceTree = "<group>"; };
+		9CFD87C21CC5C005000178D0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				9CE0DA011CC3E63C001E7B62 /* Assets.xcassets */,
 				9CE0DA031CC3E63C001E7B62 /* LaunchScreen.storyboard */,
 				9CE0DA061CC3E63C001E7B62 /* Info.plist */,
+				9CFD87C21CC5C005000178D0 /* README.md */,
 			);
 			path = GB2260Example;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CFD87C31CC5C005000178D0 /* README.md in Sources */,
 				9CE0D9FD1CC3E63C001E7B62 /* ViewController.swift in Sources */,
 				9CE0D9FB1CC3E63C001E7B62 /* AppDelegate.swift in Sources */,
 			);

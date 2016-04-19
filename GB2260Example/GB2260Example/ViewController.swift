@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     if let db = GB2260() {
-      print(db["441900"])
+      print(db["110105"])
+      print(db.provinces)
       print(db.prefecturesOf(code: "110000"))
       print(db.countriesOf(code: "110100"))
     }
