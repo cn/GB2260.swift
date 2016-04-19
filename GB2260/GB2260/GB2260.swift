@@ -44,7 +44,7 @@ extension GB2260 {
 extension GB2260 {
 
   func getProvince(code: String) -> () -> Division? {
-    return { [unowned self] in
+    return { 
       if self.isProvince(code) {
         return nil
       } else {
@@ -54,7 +54,7 @@ extension GB2260 {
   }
 
   func getPrefecture(code: String) -> () -> Division? {
-    return { [unowned self] in
+    return {
       if self.isPrefecture(code) {
         return nil
       } else {
