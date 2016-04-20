@@ -7,6 +7,7 @@
 
 public struct Division {
   typealias LazyEvaluation = () -> Division?
+
   public let name: String
   public let code: String
   public let revision: String
@@ -17,8 +18,8 @@ public struct Division {
     return getPrefecture()
   }
 
-  let getProvince: () -> Division?
-  let getPrefecture: () -> Division?
+  let getProvince: LazyEvaluation
+  let getPrefecture: LazyEvaluation
 
   init(name: String, code: String, revision: String, getProvince: LazyEvaluation, getPrefecture: LazyEvaluation) {
     self.name = name

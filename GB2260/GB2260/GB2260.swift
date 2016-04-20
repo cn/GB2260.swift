@@ -41,7 +41,7 @@ extension GB2260 {
 }
 
 extension GB2260 {
-  func getProvince(code: String) -> () -> Division? {
+  func getProvince(code: String) -> Division.LazyEvaluation {
     return { 
       if self.isProvince(code) {
         return nil
@@ -51,7 +51,7 @@ extension GB2260 {
     }
   }
 
-  func getPrefecture(code: String) -> () -> Division? {
+  func getPrefecture(code: String) -> Division.LazyEvaluation {
     return {
       if self.isPrefecture(code) {
         return nil
@@ -72,15 +72,19 @@ extension GB2260 {
     guard let province = self[code] else {
       return []
     }
-    return data.filter({ isPrefecture($0.0)
-      && self[$0.0]!.province == province }).flatMap { self[$0.0] }
+    return data.filter({
+      isPrefecture($0.0) && self[$0.0]!.province == province
+    }).flatMap { self[$0.0] }
   }
 
 
   public func countiesOf(code code: String) -> [Division] {
     guard let prefecture = self[code] else { return [] }
-    return data.filter({ !isProvince($0.0) && !isPrefecture($0.0)
-      && self[$0.0]!.prefecture == prefecture }).flatMap { self[$0.0] }
+    return data.filter({
+      !isProvince($0.0) &&
+      !isPrefecture($0.0) &&
+      self[$0.0]!.prefecture == prefecture
+    }).flatMap { self[$0.0] }
   }
 
 }
