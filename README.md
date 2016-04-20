@@ -1,4 +1,5 @@
-# GB2260.swift 🚚
+# GB2260.swift 🚚 
+[![Build Status](https://travis-ci.org/5d/GB2260.swift.svg?branch=master)](https://travis-ci.org/5d/GB2260.swift)
 
 The Swift implementation for looking up Chinese administrative divisions.
 
