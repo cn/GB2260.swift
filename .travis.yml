@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode7.3
+xcode_project: GB2260.xcworkspace
+xcode_scheme: GB2260
+xcode_sdk: iphonesimulator8.4
