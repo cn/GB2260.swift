@@ -5,6 +5,11 @@
 //  Created by Di Wu on 4/17/16.
 //
 
+/** 
+ The revision of GB2206 dataset
+
+ See: https://github.com/cn/GB2260
+*/
 public enum Revision: String {
   case V201410 = "201410"
   case V201308 = "201308"
