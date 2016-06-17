@@ -357,6 +357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.GB2260.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};

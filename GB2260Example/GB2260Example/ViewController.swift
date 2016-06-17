@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view, typically from a nib.
     if let db = GB2260() {
       print(db["110105"])
+      print(db.division(of: "110000"))
       print(db.provinces)
       print(db.prefectures(of: "110000"))
       print(db.counties(of: "110100"))
