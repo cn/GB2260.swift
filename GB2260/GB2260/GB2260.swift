@@ -7,17 +7,16 @@
 
 /// An implementation for looking up Chinese administrative divisions(GB/T 2260 codes).
 public class GB2260 {
-  /// The revision of this GB2260 dataset.
+  /// The revision of current loaded GB2260 dataset.
   public let revision: Revision
 
   private let data: [String: String]
 
   /**
-   Create an instance of given revision GB2260 dataset.
+   Creates an instance that loads given revision GB2260 dataset;
+   it may failed to load when the specific revision dataset doesn't exist, and return `nil`.
 
-   - parameter revision: The specific revision
-
-   - returns: The created GB2260 dataset, it returns `nil` when the specific revision dataset is failed to load
+   - Parameter revision: the specific `GB2260.Revision`
   */
   public init?(revision: Revision = .V201410) {
     self.revision = revision
@@ -32,96 +31,99 @@ public class GB2260 {
 
 }
 
-extension GB2260 {
-  func isProvince(code: String) -> Bool {
-    return code.hasSuffix("0000")
+private extension String {
+  var isProvince: Bool {
+    return hasSuffix("0000")
   }
 
-  func isPrefecture(code: String) -> Bool {
-    return code.hasSuffix("00")
+  var isPrefecture: Bool {
+    return hasSuffix("00")
   }
 
-  func provinceCode(code: String) -> String {
-    return code.substringToIndex(code.startIndex.advancedBy(2)) + "0000"
+  var provinceCode: String {
+    return substringToIndex(startIndex.advancedBy(2)) + "0000"
   }
 
-  func prefectureCode(code: String) -> String {
-    return code.substringToIndex(code.startIndex.advancedBy(4)) + "00"
+  var prefectureCode: String {
+    return substringToIndex(startIndex.advancedBy(4)) + "00"
   }
 }
 
 extension GB2260 {
   /**
-   A read-only property.
-
-   returns: the provinces for this revision in a list of `Division`
+   A `List` of provinces in `Division` under current loaded GB2260 revision.
   */
   public var provinces: [Division] {
-    return self.data.filter({ isProvince($0.0) }).flatMap { self[$0.0] }
+    return data.filter { $0.0.isProvince }
+               .flatMap { self[$0.0] }
   }
 
   /**
-   Looking up for prefectures under a given province code.
+   Looking up for prefectures under a given province zipcode.
 
-   - parameter code: The province code for looking up
+   - Parameter code: a valid GB2260 zipcode.
 
-   - returns: A list of prefecture level cities in `Division`
+   - Returns: a list of prefecture cities in `Division` if it has one;
+              returns empty list otherwise.
   */
-  public func prefecturesOf(code code: String) -> [Division] {
+  public func prefectures(of code: String) -> [Division] {
     guard let province = self[code] else {
       return []
     }
-    return data.filter({
-      isPrefecture($0.0) && self[$0.0]!.province == province
-    }).flatMap { self[$0.0] }
+    return data.filter {
+      $0.0.isPrefecture && self[$0.0]!.province == province
+    }.flatMap { self[$0.0] }
   }
 
   /**
    Looking up for counties under a given prefecture code.
 
-   - parameter code: The prefecture code for looking up
+   - Parameter code: a valid GB2260 zipcode.
 
-   - returns: A list of counties in `Division`
+   - Returns: a list of counties in `Division` if it has one;
+              returns empty list otherwise.
   */
-  public func countiesOf(code code: String) -> [Division] {
+  public func counties(of code: String) -> [Division] {
     guard let prefecture = self[code] else { return [] }
-    return data.filter({
-      !isProvince($0.0) &&
-      !isPrefecture($0.0) &&
+    return data.filter {
+      !$0.0.isProvince &&
+      !$0.0.isPrefecture &&
       self[$0.0]!.prefecture == prefecture
-    }).flatMap { self[$0.0] }
+    }.flatMap { self[$0.0] }
   }
 
 }
 
 extension GB2260 {
-  func provinceFor(code code: String) -> Division.LazyEvaluation {
+  func province(of code: String) -> Division.LazyEvaluation {
     return {
-      if self.isProvince(code) {
-        return nil
-      } else {
-        return self[self.provinceCode(code)]
-      }
+      return code.isProvince ? nil : self[code.provinceCode]
     }
   }
 
-  func prefectureFor(code code: String) -> Division.LazyEvaluation {
+  func prefecture(of code: String) -> Division.LazyEvaluation {
     return {
-      if self.isPrefecture(code) {
-        return nil
-      } else {
-        return self[self.prefectureCode(code)]
-      }
+      return code.isPrefecture ? nil : self[code.prefectureCode]
     }
   }
 
-  public subscript(index: String) -> Division? {
-    guard let name = data[index] else { return nil }
+  /// Returns the correspond division of `code` if database has one;
+  /// returns `nil` otherwise.
+  public func division(of code: String) -> Division? {
+    guard let name = data[code] else { return nil }
     return Division(name: name,
-                    code: index,
+                    code: code,
                     revision: revision.rawValue,
-                    getProvince: provinceFor(code: index),
-                    getPrefecture: prefectureFor(code: index))
+                    getProvince: province(of: code),
+                    getPrefecture: prefecture(of: code))
   }
-  
+
+  /// Accesses the correspond division of `code` if database has one;
+  /// returns `nil` otherwise.
+  ///
+  /// - SeeAlso: `division(of:)`.
+  public subscript(code: String) -> Division? {
+    return division(of: code)
+  }
+
 }

@@ -25,14 +25,6 @@ public struct Division {
 
   let getProvince: LazyEvaluation
   let getPrefecture: LazyEvaluation
-
-  init(name: String, code: String, revision: String, getProvince: LazyEvaluation, getPrefecture: LazyEvaluation) {
-    self.name = name
-    self.code = code
-    self.revision = revision
-    self.getProvince = getProvince
-    self.getPrefecture = getPrefecture
-  }
 }
 
 extension Division: Equatable { }
@@ -46,7 +38,7 @@ extension Division: CustomStringConvertible {
       province?.name ?? "",
       prefecture?.name ?? "",
       name
-    ].filter({ !$0.isEmpty }).joinWithSeparator(" ")
+    ].filter { !$0.isEmpty }.joinWithSeparator(" ")
   }
 }
 

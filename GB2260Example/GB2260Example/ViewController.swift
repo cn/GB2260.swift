@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     if let db = GB2260() {
       print(db["110105"])
       print(db.provinces)
-      print(db.prefecturesOf(code: "110000"))
-      print(db.countiesOf(code: "110100"))
+      print(db.prefectures(of: "110000"))
+      print(db.counties(of: "110100"))
     }
   }
 

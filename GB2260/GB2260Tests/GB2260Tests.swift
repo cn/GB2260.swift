@@ -25,6 +25,12 @@ class GB2260Tests: XCTestCase {
     XCTAssertTrue(db != nil)
   }
 
+  func testDivision() {
+    let division = db["110000"]
+    let division2 = db.division(of: "110000")
+    XCTAssertEqual(division, division2)
+  }
+
   func testProvince() {
     let division = db["110000"]
     XCTAssertNotNil(division)
@@ -61,10 +67,10 @@ class GB2260Tests: XCTestCase {
     XCTAssertNil(db["1109"])
     XCTAssertNil(db["999900"])
     XCTAssertNil(db["11019"])
-    XCTAssertTrue(db.prefecturesOf(code: "990000").count == 0)
-    XCTAssertTrue(db.prefecturesOf(code: "123").count == 0)
-    XCTAssertTrue(db.countiesOf(code: "110900").count == 0)
-    XCTAssertTrue(db.countiesOf(code: "9").count == 0)
+    XCTAssertTrue(db.prefectures(of: "990000").count == 0)
+    XCTAssertTrue(db.prefectures(of: "123").count == 0)
+    XCTAssertTrue(db.counties(of: "110900").count == 0)
+    XCTAssertTrue(db.counties(of: "9").count == 0)
   }
 
   func testProvinces() {
@@ -72,11 +78,11 @@ class GB2260Tests: XCTestCase {
   }
 
   func testPrefectures() {
-    XCTAssertEqual(db.prefecturesOf(code: "110000").count, 2)
+    XCTAssertEqual(db.prefectures(of: "110000").count, 2)
   }
 
   func testCountries() {
-    XCTAssertEqual(db.countiesOf(code: "110100").count, 14)
+    XCTAssertEqual(db.counties(of: "110100").count, 14)
   }
 
   func testPerformanceExample() {

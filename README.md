@@ -49,21 +49,39 @@ if let db = GB2260(),             // same to: let db = GB2260(.V201410)
 }
 ```
 
-### .prefecturesOf(code: String) -> [Division]
+### .division(of code: String) -> Division?
+
+Returns the correspond division of `code` if there is one, returns `nil` otherwise.
+
+```swift
+GB2260()?.division(of: "110000")
+// Division: Optional(<GB/T 2260-201410> 110000 北京市)
+```
+
+### [code: String] -> Division?
+
+Same to `division(of:)`
+
+```swift
+GB2260()?["110000"]
+// Division: Optional(<GB/T 2260-201410> 110000 北京市)
+```
+
+### .prefectures(of code: String) -> [Division]
 
 Return a list of prefecture level cities in Division data structure.
 
 ```swift
-GB2260()!.prefecturesOf(code: "110000")
+GB2260()!.prefectures(of: "110000")
 // [<GB/T 2260-201410> 110100 北京市 市辖区, <GB/T 2260-201410> 110200 北京市 县]
 ```
 
-### .countiesOf(code: String) -> [Division]
+### .counties(of code: String) -> [Division]
 
 Return a list of counties in Division data structure.
 
 ```swift
-GB2260()!.countiesOf(code: "110100") 
+GB2260()!.counties(of: "110100")
 /**
   [
     <GB/T 2260-201410> 110108 北京市 市辖区 海淀区

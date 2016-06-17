@@ -30,6 +30,6 @@ public enum Revision: String {
   case V200212 = "200212"
 
   var path: String? {
-    return NSBundle(forClass: GB2260.self).pathForResource(self.rawValue, ofType: "plist", inDirectory: "data")
+    return NSBundle(forClass: GB2260.self).pathForResource(rawValue, ofType: "plist", inDirectory: "data")
   }
 }
