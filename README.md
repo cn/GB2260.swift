@@ -1,13 +1,11 @@
 # GB2260.swift 🚚 
-[![Build Status](https://travis-ci.org/5d/GB2260.swift.svg?branch=master)](https://travis-ci.org/5d/GB2260.swift)
 
 The Swift implementation for looking up Chinese administrative divisions.
 
 ## GB/T 2260
 
 [![GB/T 2260](https://img.shields.io/badge/GB%2FT%202260-v0.2-blue.svg)](https://github.com/cn/GB2260)
-[![Build Status](https://img.shields.io/travis/cn/GB2260.java.svg?style=flat)](https://travis-ci.org/cn/GB2260.java)
-[![Coverage](https://img.shields.io/coveralls/cn/GB2260.java.svg?style=flat)](https://coveralls.io/r/cn/GB2260.java)
+[![Build Status](https://travis-ci.org/cn/GB2260.swift.svg?branch=master)](https://travis-ci.org/cn/GB2260.swift)
 
 The latest GB/T 2260 codes. Read the [GB2260 Specification](https://github.com/cn/GB2260/blob/v0.2/spec.md).
 
@@ -20,7 +18,7 @@ The latest GB/T 2260 codes. Read the [GB2260 Specification](https://github.com/c
 Add the following to your Cartfile:
 
 ```
-github "5d/GB2260.swift"
+github "cn/GB2260.swift"
 ```
 
 Then run `carthage update`.
