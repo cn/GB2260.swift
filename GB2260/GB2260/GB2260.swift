@@ -56,6 +56,7 @@ extension GB2260 {
   public var provinces: [Division] {
     return data.filter { $0.0.isProvince }
                .flatMap { self[$0.0] }
+               .sort(<)
   }
 
   /**
@@ -71,8 +72,8 @@ extension GB2260 {
       return []
     }
     return data.filter {
-      $0.0.isPrefecture && self[$0.0]!.province == province
-    }.flatMap { self[$0.0] }
+      $0.0.isPrefecture && self[$0.0]?.province == province
+    }.flatMap { self[$0.0] }.sort(<)
   }
 
   /**
@@ -88,8 +89,8 @@ extension GB2260 {
     return data.filter {
       !$0.0.isProvince &&
       !$0.0.isPrefecture &&
-      self[$0.0]!.prefecture == prefecture
-    }.flatMap { self[$0.0] }
+      self[$0.0]?.prefecture == prefecture
+    }.flatMap { self[$0.0] }.sort(<)
   }
 
 }

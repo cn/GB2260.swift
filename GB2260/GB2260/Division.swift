@@ -28,8 +28,27 @@ public struct Division {
 }
 
 extension Division: Equatable { }
+
 public func ==(lhs: Division, rhs: Division) -> Bool {
   return lhs.code == rhs.code && lhs.revision == rhs.revision
+}
+
+extension Division: Comparable { }
+
+public func <(lhs: Division, rhs: Division) -> Bool {
+  return lhs.code < rhs.code
+}
+
+public func <=(lhs: Division, rhs: Division) -> Bool {
+  return lhs.code <= rhs.code
+}
+
+public func >=(lhs: Division, rhs: Division) -> Bool {
+  return lhs.code >= rhs.code
+}
+
+public func >(lhs: Division, rhs: Division) -> Bool {
+  return lhs.code >= rhs.code
 }
 
 extension Division: CustomStringConvertible {
