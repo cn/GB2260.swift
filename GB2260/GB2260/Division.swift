@@ -48,7 +48,7 @@ public func >=(lhs: Division, rhs: Division) -> Bool {
 }
 
 public func >(lhs: Division, rhs: Division) -> Bool {
-  return lhs.code >= rhs.code
+  return lhs.code > rhs.code
 }
 
 extension Division: CustomStringConvertible {
