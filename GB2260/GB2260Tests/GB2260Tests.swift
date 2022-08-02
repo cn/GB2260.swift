@@ -34,8 +34,8 @@ class GB2260Tests: XCTestCase {
   func testProvince() {
     let division = db["110000"]
     XCTAssertNotNil(division)
-    XCTAssertEqual(division!.name, .Some("北京市"))
-    XCTAssertEqual(division!.description, .Some("北京市"))
+    XCTAssertEqual(division!.name, "北京市")
+    XCTAssertEqual(division!.description, "北京市")
     XCTAssertEqual(division!.revision, db.revision.rawValue)
     XCTAssertEqual("110000", division!.code)
   }
@@ -43,18 +43,18 @@ class GB2260Tests: XCTestCase {
   func testPrefecture() {
     let division = db["110100"]
     XCTAssertNotNil(division)
-    XCTAssertEqual(division!.province?.name, .Some("北京市"))
+    XCTAssertEqual(division!.province?.name, "北京市")
     XCTAssertEqual(division!.name, "市辖区")
-    XCTAssertEqual(division!.description, .Some("北京市 市辖区"))
+    XCTAssertEqual(division!.description, "北京市 市辖区")
   }
 
   func testCountry() {
     let division = db["110101"]
     XCTAssertNotNil(division)
-    XCTAssertEqual(division!.province?.name, .Some("北京市"))
-    XCTAssertEqual(division!.prefecture?.name, .Some("市辖区"))
+    XCTAssertEqual(division!.province?.name, "北京市")
+    XCTAssertEqual(division!.prefecture?.name, "市辖区")
     XCTAssertEqual(division!.name, "东城区")
-    XCTAssertEqual(division!.description, .Some("北京市 市辖区 东城区"))
+    XCTAssertEqual(division!.description, "北京市 市辖区 东城区")
   }
 
   func testFailedQuery() {
@@ -87,7 +87,7 @@ class GB2260Tests: XCTestCase {
 
   func testPerformanceExample() {
     // This is an example of a performance test case.
-    self.measureBlock {
+      self.measure {
       // Put the code you want to measure the time of here.
     }
   }
